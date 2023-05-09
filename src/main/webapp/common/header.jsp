@@ -43,7 +43,7 @@ request.setCharacterEncoding("utf-8");
 					<a href="${contextPath}/index/index.jsp">CAMPMALL</a>
 				</h1>
 				<ul>
-					<li><a href="#"><strong>NOTICE</strong></a></li>
+					<li><a href="${contextPath}/notice/notice.jsp"><strong>NOTICE</strong></a></li>
 					<li><a href="#">EVENT</a></li>
 					<li><a href="#">REVIEW</a></li>
 					<li><a href="#">SEARCH</a></li>
