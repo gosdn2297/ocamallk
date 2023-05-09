@@ -71,9 +71,9 @@ public class BoardController extends HttpServlet {
 				// 오늘 코드 추가한부분
 				// 오늘 사라진코드 articleList=boardService.listArticles();
 				// 오늘 사라진 코드 request.setAttribute("articleList", articleList);
-				nextPage = "/notice/notice.jsp";
+				nextPage = "../notice/notice.jsp";
 			} else if (action.equals("/write.do")) {
-				nextPage = "/notice/write.jsp";
+				nextPage = "../notice/write.jsp";
 			} else if (action.equals("/addArticle.do")) {
 				int articleNo = 0;
 				Map<String, String> articleMap = upload(request, response); // 해시맵 구조(java.util)

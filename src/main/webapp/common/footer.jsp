@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%
+   request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,30 +17,30 @@
     <div class="footer_inner">
       <div class="footer_info">
         <ul class="clearfix">
-          <li><a href="#">È¸»ç¼Ò°³</a></li>
-          <li><a href="#">ÀÌ¿ë¾à°ü</a></li>
-          <li><a href="#">Á¦ÈÞÁ¦¾È</a></li>
-          <li><a href="#">°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</a></li>
+          <li><a href="#">íšŒì‚¬ì†Œê°œ</a></li>
+          <li><a href="#">ì´ìš©ì•½ê´€</a></li>
+          <li><a href="#">ì œíœ´ì œì•ˆ</a></li>
+          <li><a href="#">ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨</a></li>
         </ul>
         <p class="footer_info_text">
-          (ÁÖ) CAMPMALL &nbsp;&nbsp;&nbsp;&nbsp;»ç¾÷ÀÚµî·Ï¹øÈ£: 123-45-67891&nbsp;&nbsp;&nbsp;&nbsp;Åë½ÅÆÇ¸Å¹øÈ£:
-          1234-¼­¿ïÁ¾·Î-5678
+          (ì£¼) CAMPMALL &nbsp;&nbsp;&nbsp;&nbsp;ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸: 123-45-67891&nbsp;&nbsp;&nbsp;&nbsp;í†µì‹ íŒë§¤ë²ˆí˜¸:
+          1234-ì„œìš¸ì¢…ë¡œ-5678
           <br>
-          ÁÖ¼Ò: ¼­¿ïÆ¯º°½Ã Á¾·Î±¸
+          ì£¼ì†Œ: ì„œìš¸íŠ¹ë³„ì‹œ ì¢…ë¡œêµ¬
         </p>
         <p class="footer_info_copy">
           &copy; CP Corp.
         </p>
       </div>
       <div class="footer_customer">
-        <p class="cs_title">°í°´¼¾ÅÍ 0601-0908</p>
+        <p class="cs_title">ê³ ê°ì„¼í„° 0601-0908</p>
         <p class="cs_text">
-          ÆòÀÏ: 10:00 ~ 22:00 (Åä¡¤ÀÏ, °øÈÞÀÏ Á¦¿Ü)
+          í‰ì¼: 10:00 ~ 22:00 (í† Â·ì¼, ê³µíœ´ì¼ ì œì™¸)
           <br>
-          Á¡½É ½Ã°£: 12:00 ~ 13:30
+          ì ì‹¬ ì‹œê°„: 12:00 ~ 13:30
         </p>
         <div class="btn_area">
-          <a href="#" class="btn_cs">¹®ÀÇÇÏ±â</a>
+          <a href="${contextPath}/notice/qna.jsp" class="btn_cs">ë¬¸ì˜í•˜ê¸°</a>
         </div>
       </div>
       <div class="footer_sns">

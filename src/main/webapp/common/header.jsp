@@ -17,30 +17,36 @@ request.setCharacterEncoding("utf-8");
 			<div class="top_menu_inner clearfix">
 				<ul>
 					<%
-					if (session.getAttribute("log_id") == null) {
+					String log_id = (String) session.getAttribute("log_id");
+					if (log_id == null) {
 					%>
 					<li><a href="${contextPath}/notice/qna.jsp">고객센터</a></li>
 					<li><a href="${contextPath}/baskert/baskert.jsp">장바구니</a></li>
 					<li><a href="${contextPath}/login/login.jsp">로그인</a></li>
 					<%
 					} else {
+					if (log_id.equals("admin@admin.com")) {
+					%>
+					<li><a href="${contextPath}/admin/adminpage.jsp">관리자페이지</a></li>
+					<li><a href="${contextPath}/login/logout.jsp">로그아웃</a></li>
+					<%
+					} else {
 					%>
 					<li><a href="${contextPath}/notice/qna.jsp">고객센터</a></li>
 					<li><a href="${contextPath}/baskert/baskert.jsp">장바구니</a></li>
-					<li><a href="#">마이페이지</a></li>
-				    <li><a href="${contextPath}/login/logout.jsp" >로그아웃</li>
-					
+					<li><a href="${contextPath}/login/mypage.jsp">마이페이지</a></li>
+					<li><a href="${contextPath}/login/logout.jsp">로그아웃</a></li>
 					<%
 					}
+					}
 					%>
-
 				</ul>
 			</div>
 		</div>
 		<div class="middle_menu">
 			<div class="middle_menu_inner">
 				<h1>
-					<a href="${contextPath}/index/index.jsp">CAMPMALL</a>
+					<a href="${contextPath}/index/index.jsp">theCAMP</a>
 				</h1>
 				<ul>
 					<li><a href="${contextPath}/notice/notice.jsp"><strong>NOTICE</strong></a></li>

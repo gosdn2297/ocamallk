@@ -10,6 +10,7 @@ public class MemberVO {
 	private int phone;
 	private String name;
 	
+	
 	public MemberVO() {
 		
 	}
@@ -64,6 +65,5 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	
 }

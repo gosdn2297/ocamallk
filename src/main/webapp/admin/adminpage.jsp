@@ -12,7 +12,7 @@ request.setCharacterEncoding("utf-8");
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>캠프몰</title>
+<title>캠프몰관리자</title>
 
 <!-- css -->
 <link rel="stylesheet"
@@ -46,42 +46,11 @@ request.setCharacterEncoding("utf-8");
 	</div>
 
 	<jsp:include page="../common/header.jsp"></jsp:include>
-
-
-	<div class="container">
-		<section class="login">
-			<div class="login_inner">
-				<h2>LOGIN</h2>
-				<form action="${contextPath}/login.do" name="frmlogin" method="post">
-					<fieldset>
-						<legend>로그인 폼</legend>
-						<div class="input_box">
-							<p class="title">
-								<strong>이메일 주소</strong>
-							</p>
-							<input type="email" class="input_email"
-								placeholder="예) camp@campmall.com" name="email" required>
-							<p class="warning_email">이메일 주소를 정확하게 입력해주세요.</p>
-						</div>
-						<div class="input_box">
-							<p class="title">
-								<strong>비밀번호</strong>
-							</p>
-							<input type="password" class="input_password" autocomplete="on"
-								name="pwd" required>
-							<p class="warning_password">영문, 숫자, 특수문자를 조합해서 입력해주세요.
-								(8-16자)</p>
-						</div>
-						<input type="submit" value="로그인" class="submit_login">
-						<ul>
-							<li><a href="${contextPath}/signup/register.jsp">이메일 가입</a></li>
-							<li><a href="${contextPath}/login/find_email.jsp">이메일 찾기</a></li>
-							<li><a href="${contextPath}/login/find_pwd.jsp">비밀번호 찾기</a></li>
-						</ul>
-					</fieldset>
-				</form>
-			</div>
-		</section>
+	<div>
+	<li><a href="#">회원정보리스트</a></li>
+	</div>
+	<div>
+	<li><a href="#">상품등록</a></li>
 	</div>
 	<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

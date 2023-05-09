@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/login")
+@WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,12 +38,19 @@ public class LoginServlet extends HttpServlet {
 		if(isLoginSuccess) {
 			HttpSession session=request.getSession();
 			session.setAttribute("log_id", email);
-			response.sendRedirect("index/index.jsp");
+			out.println("<script>");
+			if (email.equals("admin@admin.com")) {
+				out.println("alert('관리자님 환영합니다.');");
 			} else {
-		        out.println("<script>");
-		        out.println("alert('아이디 또는 비밀번호를 잘못 입력했습니다.');");
-		        out.println("history.back();");
-		        out.println("</script>");
-		    }
+				out.println("alert('"+"환영합니다.');");
+			}
+			out.println("location.href='index/index.jsp';");
+			out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('아이디 또는 비밀번호를 잘못 입력했습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+		}
 	}
 }
