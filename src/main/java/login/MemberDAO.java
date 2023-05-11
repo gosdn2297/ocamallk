@@ -41,10 +41,10 @@ import javax.sql.DataSource;
 	        while(rs.next()) {
 	        	String email = rs.getString("email");
 	        	String pwd = rs.getString("pwd");
-	        	int postcode = rs.getInt("postcode");
+	        	String postcode = rs.getString("postcode");
 	        	String address = rs.getString("address");
 	        	String detailaddress =rs.getString("detailaddress");
-	        	int phone = rs.getInt("phone");
+	        	String phone = rs.getString("phone");
 	        	String name = rs.getString("name");
 	        	MemberVO memberVO = new MemberVO(email, pwd, postcode, address, detailaddress, phone, name);
 	        	memberList.add(memberVO);
@@ -64,19 +64,19 @@ import javax.sql.DataSource;
 	        conn = dataFactory.getConnection();
 	        String email = memberVO.getEmail();
 	        String pwd = memberVO.getPwd();
-	        int postcode= memberVO.getPostcode();
+	        String postcode= memberVO.getPostcode();
 	        String address = memberVO.getAddress();
 	        String detailAddress = memberVO.getDetailaddress();
-	        int phone= memberVO.getPhone();
+	        String phone= memberVO.getPhone();
 	        String name = memberVO.getName();
 	        String query = "insert into memtbl (email, pwd, postcode, address, detailAddress, phone, name) values(?,?,?,?,?,?,?)";
 	        pstmt = conn.prepareStatement(query);
 	        pstmt.setString(1, email);
 	        pstmt.setString(2, pwd);
-	        pstmt.setInt(3, postcode);
+	        pstmt.setString(3, postcode);
 	        pstmt.setString(4, address);
 	        pstmt.setString(5, detailAddress);
-	        pstmt.setInt(6, phone);
+	        pstmt.setString(6, phone);
 	        pstmt.setString(7, name);
 	        pstmt.executeUpdate();
 	        pstmt.close();
@@ -91,17 +91,17 @@ import javax.sql.DataSource;
 	     MemberVO memFindInfo = null;
 	     try {
 	        conn = dataFactory.getConnection();
-	        String query = "select * from memtbl where id=?";
+	        String query = "select * from memtbl where email=?";
 	        pstmt = conn.prepareStatement(query);
 	        pstmt.setString(1, _email);
 	        ResultSet rs = pstmt.executeQuery();
 	        rs.next();
 	        String email = rs.getString("email");
         	String pwd = rs.getString("pwd");
-        	int postcode = rs.getInt("postcode");
+        	String postcode = rs.getString("postcode");
         	String address = rs.getString("address");
         	String detailaddress =rs.getString("detailaddress");
-        	int phone = rs.getInt("phone");
+        	String phone = rs.getString("phone");
         	String name = rs.getString("name");
 	        memFindInfo = new MemberVO(email, pwd, postcode, address, detailaddress, phone, name);
 	        pstmt.close();
@@ -115,22 +115,22 @@ import javax.sql.DataSource;
 	  }
 	//  회원정보 수정
 	  public void modMember(MemberVO memberVO) {
-		  String email = memberVO.getEmail();
+		    String email = memberVO.getEmail();
 	        String pwd = memberVO.getPwd();
-	        int postcode= memberVO.getPostcode();
+	        String postcode= memberVO.getPostcode();
 	        String address = memberVO.getAddress();
 	        String detailAddress = memberVO.getDetailaddress();
-	        int phone= memberVO.getPhone();
+	        String phone= memberVO.getPhone();
 	        String name = memberVO.getName();
 		   	try {
 		   			conn=dataFactory.getConnection();
 		   			String query="update memtbl set pwd=?,postcode=?,address=?,detailAddress=?,phone=? where email=?";
 		   			pstmt=conn.prepareStatement(query);
 			        pstmt.setString(1, pwd);
-			        pstmt.setInt(2, postcode);
+			        pstmt.setString(2, postcode);
 			        pstmt.setString(3, address);
 			        pstmt.setString(4, detailAddress);
-			        pstmt.setInt(5, phone);
+			        pstmt.setString(5, phone);
 			        pstmt.setString(6, name);
 			        pstmt.setString(7, email);
 		   			pstmt.execute();
@@ -178,14 +178,14 @@ import javax.sql.DataSource;
 	}
 	public String findId(MemberVO memberVO) {
 		String name = memberVO.getName();
-        int phone= memberVO.getPhone();
+		String phone= memberVO.getPhone();
 		String result = null;
 		try {
 			conn=dataFactory.getConnection();
 			String query="select email from memtbl where name=? and phone=? ";
 			pstmt=conn.prepareStatement(query);
 	        pstmt.setString(1, name);
-	        pstmt.setInt(2, phone);
+	        pstmt.setString(2, phone);
 	        
 	        ResultSet rs=pstmt.executeQuery();
 	        
@@ -200,7 +200,7 @@ import javax.sql.DataSource;
 	public String findPwd(MemberVO memberVO) {
 		String name = memberVO.getName();
 		String email=memberVO.getEmail();
-        int phone= memberVO.getPhone();
+		String phone= memberVO.getPhone();
 		String result = null;
 		try {
 			conn=dataFactory.getConnection();
@@ -208,7 +208,7 @@ import javax.sql.DataSource;
 			pstmt=conn.prepareStatement(query);
 	        pstmt.setString(1, name);
 	        pstmt.setString(2, email);
-	        pstmt.setInt(3, phone);
+	        pstmt.setString(3, phone);
 	        
 	        ResultSet rs=pstmt.executeQuery();
 	        

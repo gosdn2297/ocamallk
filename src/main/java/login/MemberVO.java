@@ -4,17 +4,16 @@ public class MemberVO {
 	//db를 이용할땐 private써서 필드에 접근못하게한다. 
 	private String email;
 	private String pwd;
-	private int postcode;
+	private String postcode;
 	private String address;
 	private String detailaddress;
-	private int phone;
+	private String phone;
 	private String name;
-	
 	
 	public MemberVO() {
 		
 	}
-	public MemberVO(String email, String pwd ,int postcode, String address , String detailaddress, int phone, String name) {
+	public MemberVO(String email, String pwd ,String postcode, String address , String detailaddress, String phone, String name) {
 		this.email=email;
 		this.pwd=pwd;
 		this.postcode=postcode;
@@ -35,10 +34,10 @@ public class MemberVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(int postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 	public String getAddress() {
@@ -53,10 +52,10 @@ public class MemberVO {
 	public void setDetailaddress(String detailaddress) {
 		this.detailaddress = detailaddress;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone1(int phone) {
+	public void setPhone1(String phone) {
 		this.phone = phone;
 	}
 	public String getName() {

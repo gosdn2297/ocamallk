@@ -37,10 +37,10 @@ public class MemberController extends HttpServlet {
 	      }else if(action.equals("/addMember.do")) {
 	    	  String email = request.getParameter("email");
 	    	  String pwd = request.getParameter("pwd");
-	    	  int postcode = Integer.parseInt(request.getParameter("postcode"));
+	    	  String postcode = request.getParameter("postcode"); 
 	    	  String address = request.getParameter("address");
 	    	  String detailAddress = request.getParameter("detailAddress");
-	    	  int phone = Integer.parseInt(request.getParameter("phone"));
+	    	  String phone = request.getParameter("phone");
 	    	  String name = request.getParameter("name");
 	         MemberVO memberVO = new MemberVO(email, pwd, postcode, address, detailAddress, phone, name);
 	         memberDAO.addMember(memberVO);

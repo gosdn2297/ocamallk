@@ -47,7 +47,7 @@ request.setCharacterEncoding("utf-8");
 
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	<div>
-	<li><a href="#">회원정보리스트</a></li>
+	<li><a href="${contextPath}/member/listMembers.do">회원정보리스트</a></li>
 	</div>
 	<div>
 	<li><a href="#">상품등록</a></li>

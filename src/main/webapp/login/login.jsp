@@ -52,7 +52,7 @@ request.setCharacterEncoding("utf-8");
 		<section class="login">
 			<div class="login_inner">
 				<h2>LOGIN</h2>
-				<form action="${contextPath}/login.do" name="frmlogin" method="post">
+				<form action="${contextPath}/login" name="frmlogin" method="post">
 					<fieldset>
 						<legend>로그인 폼</legend>
 						<div class="input_box">
