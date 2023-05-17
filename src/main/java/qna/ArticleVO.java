@@ -1,4 +1,4 @@
-package notice;
+package qna;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

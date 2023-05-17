@@ -39,7 +39,7 @@ request.setCharacterEncoding("utf-8");
 
 	}
 	function backtoList(obj) {
-		obj.action = "${contextPath}/notices/notice.do";
+		obj.action = "${contextPath}/qnalist/qna.do";
 		obj.submit();
 	}
 </script>
@@ -67,7 +67,7 @@ request.setCharacterEncoding("utf-8");
 	    <div class="write_inner">
 	        <h2>Notice</h2>
 	    </div>
-	    <form action="#" method="post" enctype="multipart/form-data">
+	    <form action="${contextPath}/qnalist//qnaView.do" method="post" enctype="multipart/form-data">
 	        <div class="view_area">
 	            <p class="title">${article.title}</p>
 	            <div class="data_area">
@@ -84,7 +84,7 @@ request.setCharacterEncoding("utf-8");
 	                    <span class="img">
 	                        <input type="hidden" name="originalFileName" value="${article.imageFileName}">
 	                        <span style="display:block;">
-	                            <img id="preview" src="${contextPath}/download.do?imageFileName=${article.imageFileName}&articleNo=${article.articleNo}">
+	                            <img id="preview" src="${contextPath}/qnadownload.do?imageFileName=${article.imageFileName}&articleNo=${article.articleNo}">
 	                        </span>
 	                    </span>
 	                </c:if>

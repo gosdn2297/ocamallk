@@ -80,7 +80,7 @@
     <div class="banner">
       <div class="banner_slide">
         <a href="#">
-          <img src="../image/event_0714.jpg" alt="#">
+          <img src="../image/mainbanner1.jpg" alt="#">
         </a>
       </div>
     </div>
@@ -169,8 +169,8 @@
         <h2>NEW ARRIVAL</h2>
         <ul class="clearfix">
           <li>
-            <a href="product.html">
-              <img src="../image/0240070027527.jpg" alt="#">
+            <a href="">
+              <img src="../image/1.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -180,7 +180,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/2.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -190,7 +190,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/3.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -200,7 +200,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/4.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -218,7 +218,7 @@
         <ul class="clearfix">
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/HP1.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -228,7 +228,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/HP2.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -238,7 +238,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/HP3.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -248,7 +248,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/HP4.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -266,7 +266,7 @@
         <ul class="clearfix">
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/MD1.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -276,7 +276,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/MD2.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -286,7 +286,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/MD3.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -296,7 +296,7 @@
           </li>
           <li>
             <a href="#">
-              <img src="../image/0240070027527.jpg" alt="#">
+              <img src="../image/MD4.jpg" alt="#">
               <h3>듀랑고</h3>
               <p class="content">슬림가스스토브 #</p>
               <p class="price discount">100,000원</p>
@@ -316,7 +316,25 @@
             <a href="#">
               <img src="../image/0240030006612.jpg" alt="">
               <div class="content">
-                <p class="text">테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트</p>
+                <p class="text"></p>
+                <p class="user"></p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../image/0240030006612.jpg" alt="">
+              <div class="content">
+                <p class="text"></p>
+                <p class="user"></p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../image/0240030006612.jpg" alt="">
+              <div class="content">
+                <p class="text"></p>
                 <p class="user">test</p>
               </div>
             </a>
@@ -325,8 +343,8 @@
             <a href="#">
               <img src="../image/0240030006612.jpg" alt="">
               <div class="content">
-                <p class="text">테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트</p>
-                <p class="user">test</p>
+                <p class="text"></p>
+                <p class="user"></p>
               </div>
             </a>
           </li>
@@ -334,74 +352,15 @@
             <a href="#">
               <img src="../image/0240030006612.jpg" alt="">
               <div class="content">
-                <p class="text">테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트</p>
-                <p class="user">test</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../image/0240030006612.jpg" alt="">
-              <div class="content">
-                <p class="text">테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트</p>
-                <p class="user">test</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../image/0240030006612.jpg" alt="">
-              <div class="content">
-                <p class="text">테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트</p>
-                <p class="user">test</p>
+                <p class="text"></p>
+                <p class="user"></p>
               </div>
             </a>
           </li>
         </ul>
       </div>
     </section>
-
-    <div class="marquee">
-      <div class="marquee_inner">
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-        <div class="marquee-img">
-          <a href="#">
-            <img src="../image/brand_05_ocamall.jpg" alt="#">
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
-
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
 

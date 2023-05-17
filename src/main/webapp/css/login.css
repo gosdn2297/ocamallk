@@ -68,7 +68,11 @@
   font-size: 13px;
   color: #666;
 }
-.submit_login input[type="submit"] {
-  background-color: blue;
+
+.submit_login {
+  position : relative;
+  left: 30px;
 }
+
+
 /*# sourceMappingURL=login.css.map */

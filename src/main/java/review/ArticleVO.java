@@ -1,4 +1,4 @@
-package notice;
+package review;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

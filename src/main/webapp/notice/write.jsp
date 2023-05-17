@@ -17,20 +17,24 @@
 
   <!-- css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/write.css">
+  <link rel="stylesheet" href="${contextPath}/css/reset.css">
+  <link rel="stylesheet" href="${contextPath}/css/header.css">
+  <link rel="stylesheet" href="${contextPath}/css/footer.css">
+  <link rel="stylesheet" href="${contextPath}/css/write.css">
 
   <!-- js -->
-  <script src="./js/jquery-3.6.4.min.js"></script>
-  <script src="./js/header.js"></script>
-  <script src="./js/animation.js"></script>
+  <script src="${contextPath}/js/jquery-3.6.4.min.js"></script>
+  <script src="${contextPath}/js/header.js"></script>
+  <script src="${contextPath}/js/animation.js"></script>
 
   <!-- ckeditor -->
-  <script src="js/ckeditor.js"></script>
+  <script src="${contextPath}/js/ckeditor.js"></script>
   <script>
     $(() => {
+    	CKEDITOR.replace('editor', {
+            extraPlugins: 'image2,uploadimage',
+            filebrowserImageUploadUrl: "${contextPath}/board/download.do"
+      	});
       CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
         toolbar: {
           items: [
@@ -127,6 +131,20 @@
         ]
       });
     });
+    function readImage(input) {
+        if(input.files && input.files[0]){
+           let reader = new FileReader();
+           reader.onload = function (event) {
+              $('#preview').attr('src', event.target.result);
+           }
+           reader.readAsDataURL(input.files[0]);
+        }
+     }
+     // 다른 액션을 submit
+     function toList(obj) {
+        obj.action = "${contextPath}/notices/listArticles.do";
+        obj.submit();
+     }
   </script>
 </head>
 
@@ -143,25 +161,49 @@
   <jsp:include page="../common/header.jsp"></jsp:include>
   
 
-  <div class="container">
+ <!--  <div class="container">
     <section class="write">
-      <div class="write_inner">
-        <h2>WRITE</h2>
-        <form action="#">
-          <fieldset>
-            <legend>글쓰기 폼</legend>
-            <input type="text" placeholder="제목을 작성해주세요" class="input_title">
-            <div id="editor"></div>
-            <div class="btn_area">
-              <a href="javascript:history.back();" class="btn btn_list">목록보기</a>
-              <a href="#" class="btn btn_write">작성하기</a>
-            </div>
-          </fieldset>
-        </form>
-      </div>
+        <div class="write_inner">
+            <h2>WRITE</h2>
+            <form action="your_server_script_url" method="post">
+                <fieldset>
+                    <legend>글쓰기 폼</legend>
+                    <input type="text" name="title" placeholder="제목을 작성해주세요" class="input_title">
+                    <textarea name="content" id="editor" rows="10" cols="80"></textarea>
+                    <div class="btn_area">
+                        <a href="javascript:history.back();" class="btn btn_list">목록보기</a>
+                        <button type="submit" class="btn btn_write"><a>작성하기</a></button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+</div>
+ -->
+ 
+ 
+   <div class="container">
+    <section class="write">
+        <div class="write_inner">
+            <h2>WRITE</h2>
+            <form action="${contextPath}/notices/addArticle.do" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>글쓰기 폼</legend>
+                    <input type="text" name="title" placeholder="제목을 작성해주세요" class="input_title">
+                    <textarea name="content" id="editor" placeholder="본문을 작성해주세요" class="input_content"></textarea>
+                    <p>
+                      <input type="file" name="imageFileName" onchange="readImage(this)" >
+                      <img src="#" id="preview" width="200" height="200" class="preview_img">
+                    </p>
+                    <div class="btn_area">
+                        <a href="javascript:history.back();" class="btn btn_list">목록보기</a>
+                        <button type="submit" class="btn btn_write"><a>작성하기</a></button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </section>
   </div>
-
   <jsp:include page="../common/footer.jsp"></jsp:include>
 
 </body>

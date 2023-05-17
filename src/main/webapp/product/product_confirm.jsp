@@ -71,8 +71,8 @@
   <div class="container">
     <section class="register_confirm">
       <div class="register_confirm_inner">
-        <h2>회원가입 완료</h2>
-        <p><strong>캠프몰 사이트에 회원가입 하신 것을 환영합니다.</strong></p>
+        <h2>상품등록 완료</h2>
+        <p><strong>%s님!</strong> 상품등록 완성</p>
         <a href="index.html" class="btn_index">메인으로</a>
       </div>
     </section>

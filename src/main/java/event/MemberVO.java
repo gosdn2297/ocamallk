@@ -1,20 +1,18 @@
-package member;
-
+package event;
 public class MemberVO {
 	//db를 이용할땐 private써서 필드에 접근못하게한다. 
 	private String email;
 	private String pwd;
-	private String postcode;
+	private int postcode;
 	private String address;
 	private String detailaddress;
-	private String phone;
+	private int phone;
 	private String name;
 	
 	public MemberVO() {
 		
 	}
-	
-	public MemberVO(String email, String pwd ,String postcode, String address , String detailaddress, String phone, String name) {
+	public MemberVO(String email, String pwd ,int postcode, String address , String detailaddress, int phone, String name) {
 		this.email=email;
 		this.pwd=pwd;
 		this.postcode=postcode;
@@ -35,10 +33,10 @@ public class MemberVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public String getPostcode() {
+	public int getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(String postcode) {
+	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
 	public String getAddress() {
@@ -53,10 +51,10 @@ public class MemberVO {
 	public void setDetailaddress(String detailaddress) {
 		this.detailaddress = detailaddress;
 	}
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
-	public void setPhone1(String phone) {
+	public void setPhone1(int phone) {
 		this.phone = phone;
 	}
 	public String getName() {
@@ -65,5 +63,6 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	
 }

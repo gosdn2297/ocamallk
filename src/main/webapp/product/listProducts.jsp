@@ -30,10 +30,10 @@
 <meta charset="UTF-8">
 <title>회원 정보 출력창</title>
 <c:choose>
-	<c:when test="${msg== 'addMember' }">
+	<c:when test="${msg== 'addProduct' }">
 		<script>
 			window.onload=function () {
-				alert ("회원을 등록했습니다.")
+				alert ("상품을 등록했습니다.")
 			}
 		</script>
 	</c:when>
@@ -73,32 +73,30 @@
 	<h2 align="center">회원 정보</h2>
 	<table align="center" border="1" width="700">
 		<tr align="center" bgcolor="lightgreen">
-			<th>이메일</th>
-			<th>비밀번호</th>
-			<th>우편번호</th>
-			<th>주소</th>
-			<th>상세주소</th>
-			<th>핸드폰번호</th>
-			<th>이름</th>
+			<th>카테고리</th>
+			<th>브랜드</th>
+			<th>상품명</th>
+			<th>판매가격</th>
+			<th>이미지</th>
+			<th>등록일</th>
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
 	<c:choose>
-		<c:when test="${empty memberList}">
+		<c:when test="${empty productList}">
 			<tr>
 				<td colspan="9" align="center">등록된 회원이 없습니다.</td>
 			</tr>
 		</c:when>
-		<c:when test="${!empty memberList}">
-			<c:forEach var="mem" items="${memberList}">
+		<c:when test="${!empty productList}">
+			<c:forEach var="prod" items="${productList}">
 				<tr align="center">
-					<td>${mem.email}</td>
-					<td>${mem.pwd}</td>
-					<td>${mem.postcode}</td>
-					<td>${mem.address}</td>
-					<td>${mem.detailaddress}</td>
-					<td>${mem.phone}</td>
-					<td>${mem.name}</td>
+					<td>${prod.category}</td>
+					<td>${prod.brand}</td>
+					<td>${prod.goods}</td>
+					<td>${prod.price}</td>
+					<td>${prod.imageFileName}</td>
+					<td>${prod.regDate}</td>
 					<td><a href="${contextPath}/member/modMemberForm.do?email=${mem.email}">수정</a></td>
 					<td><a href="${contextPath}/member/delMember.do?email=${mem.email}">삭제</a></td>
 				</tr>

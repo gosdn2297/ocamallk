@@ -50,7 +50,10 @@ request.setCharacterEncoding("utf-8");
 	<li><a href="${contextPath}/member/listMembers.do">회원정보리스트</a></li>
 	</div>
 	<div>
-	<li><a href="#">상품등록</a></li>
+	<li><a href="${contextPath}/product/productRegister.jsp">상품등록</a></li>
+	</div>
+	<div>
+	<li><a href="${contextPath}/product/listProducts.jsp">상품조회</a></li>
 	</div>
 	<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

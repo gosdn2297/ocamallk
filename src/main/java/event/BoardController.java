@@ -1,4 +1,4 @@
-package notice;
+package event;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,11 +21,11 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
-@WebServlet("/notices/*")
+@WebServlet("/events/*")
 public class BoardController extends HttpServlet {
 	BoardService boardService;
 	ArticleVO articleVO;
-	private static String IMG_REPO = "C:\\lis\\notice\\notice_img";
+	private static String IMG_REPO = "C:\\lis\\event\\event_img";
 	@Override
 	public void init() throws ServletException {
 		// 계속 사용하므로 생성시 하나만 만들고 계속 사용한다
@@ -54,7 +54,7 @@ public class BoardController extends HttpServlet {
 		System.out.println("요청 이름 : " + action);
 		try {
 			List<ArticleVO> articleList = new ArrayList<ArticleVO>();
-			if (action == null || action.equals("/notice.do")) {// 어떤 매핑정보도 날라오지 않은경우
+			if (action == null || action.equals("/event.do")) {// 어떤 매핑정보도 날라오지 않은경우
 				// 오늘 코드 추가한부분
 				String _section = request.getParameter("section");
 				String _pageNum = request.getParameter("pageNum");
@@ -71,9 +71,9 @@ public class BoardController extends HttpServlet {
 				// 오늘 코드 추가한부분
 				// 오늘 사라진코드 articleList=boardService.listArticles();
 				// 오늘 사라진 코드 request.setAttribute("articleList", articleList);
-				nextPage = "/notice/notice.jsp";
+				nextPage = "/event/event.jsp";
 			} else if (action.equals("/write.do")) {
-				nextPage = "/notice/write.jsp";
+				nextPage = "/event/write.jsp";
 			} else if (action.equals("/addArticle.do")) {
 				int articleNo = 0;
 				Map<String, String> articleMap = upload(request, response); // 해시맵 구조(java.util)
@@ -98,14 +98,14 @@ public class BoardController extends HttpServlet {
 				out = response.getWriter();
 				out.print("<script>");
 				out.print("alert('새글을 추가했습니다');");
-				out.print("location.href='" + request.getContextPath() + "/notices/notice.do';");
+				out.print("location.href='" + request.getContextPath() + "/events/event.do';");
 				out.print("</script>");
 				return;
-			} else if (action.equals("/noticeView.do")) { // 글 상세창 요청
+			} else if (action.equals("/eventView.do")) { // 글 상세창 요청
 				String articleNo = request.getParameter("articleNo");
 				articleVO = boardService.viewArticle(Integer.parseInt(articleNo));
 				request.setAttribute("article", articleVO);
-				nextPage = "/notice/noticeView.jsp";
+				nextPage = "/event/eventView.jsp";
 			}
 			RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 			dispatcher.forward(request, response);
@@ -115,49 +115,6 @@ public class BoardController extends HttpServlet {
 		}
 		
 	}
-	/*
-	private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Map<String, String> articleMap = new HashMap<String, String>();
-		String encoding = "utf-8";
-		File currentDirPath = new File(IMG_REPO); // 글 이미지 저장 폴더에 대해 파일 객체를 생성
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		factory.setRepository(currentDirPath);
-		factory.setSizeThreshold(1024 * 1024);
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		try {
-			List items = upload.parseRequest(request);
-			for (int i = 0; i < items.size(); i++) {
-				FileItem fileItem = (FileItem) items.get(i);
-//            if문은 제목과 내용, else문에서는 이미지를 업로드하는 역할
-				if (fileItem.isFormField()) {
-					System.out.println(fileItem.getFieldName() + " = " + fileItem.getString(encoding));
-//               파일 업로드로 같이 전송된 제목, 내용을 매개변수로 Map(key, value)에 저장
-					articleMap.put(fileItem.getFieldName(), fileItem.getString(encoding));
-				} else {
-					System.out.println("파라미터 이름 : " + fileItem.getFieldName());
-					System.out.println("파일이름 : " + fileItem.getName());
-					System.out.println("파일(이미지) 크기 : " + fileItem.getSize() + "bytes");
-					if (fileItem.getSize() > 0) {
-						int idx = fileItem.getName().lastIndexOf("\\");
-//                  파일 위치를 못 찾았을 때
-						if (idx == -1) {
-							idx = fileItem.getName().lastIndexOf("/");
-						}
-						String fileName = fileItem.getName().substring(idx + 1);
-						articleMap.put(fileItem.getFieldName(), fileName);
-						File uploadFile = new File(currentDirPath + "\\temp\\" + fileName);
-						fileItem.write(uploadFile);
-					}
-				}
-			}
-		} catch (Exception e) {
-			System.out.println("파일 업로드 중 에러!!");
-			e.printStackTrace();
-		}
-		return articleMap;
-	}
-	*/
 	private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Map<String, String> articleMap = new HashMap<String, String>();

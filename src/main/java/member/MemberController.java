@@ -48,6 +48,6 @@ public class MemberController extends HttpServlet {
 	         nextPage = "/signup/register_confirm.jsp";
 	      }
 	      RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
-	      dispatcher.forward(request, response);      // 컨트롤러에서 화면출력하는 listMembers.jsp로 포워딩 -> nextPage로 포워딩
+			dispatcher.forward(request, response); // 컨트롤러에서 화면 출력하는 listMembers.jsp 포워딩
 	   }
 }

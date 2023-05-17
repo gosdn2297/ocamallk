@@ -39,7 +39,7 @@ request.setCharacterEncoding("utf-8");
 
 	}
 	function backtoList(obj) {
-		obj.action = "${contextPath}/notices/notice.do";
+		obj.action = "${contextPath}/reviews/review.do";
 		obj.submit();
 	}
 </script>
@@ -84,7 +84,7 @@ request.setCharacterEncoding("utf-8");
 	                    <span class="img">
 	                        <input type="hidden" name="originalFileName" value="${article.imageFileName}">
 	                        <span style="display:block;">
-	                            <img id="preview" src="${contextPath}/download.do?imageFileName=${article.imageFileName}&articleNo=${article.articleNo}">
+	                            <img id="preview" src="${contextPath}/reviewdownload.do?imageFileName=${article.imageFileName}&articleNo=${article.articleNo}">
 	                        </span>
 	                    </span>
 	                </c:if>

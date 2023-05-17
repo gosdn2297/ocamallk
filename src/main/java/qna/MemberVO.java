@@ -1,5 +1,4 @@
-package member;
-
+package qna;
 public class MemberVO {
 	//db를 이용할땐 private써서 필드에 접근못하게한다. 
 	private String email;
@@ -13,7 +12,6 @@ public class MemberVO {
 	public MemberVO() {
 		
 	}
-	
 	public MemberVO(String email, String pwd ,String postcode, String address , String detailaddress, String phone, String name) {
 		this.email=email;
 		this.pwd=pwd;
@@ -65,5 +63,6 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	
 }

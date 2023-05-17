@@ -3,6 +3,10 @@
     isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="articleList" value="${articleMap.articleList}" />
+<c:set var="totArticles" value="${articleMap.totArticles}" />
+<c:set var="section" value="${articleMap.section}" />
+<c:set var="pageNum" value="${articleMap.pageNum}" />
 <%
    request.setCharacterEncoding("utf-8");
 %>
@@ -13,7 +17,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>더캠프</title>
+  <title>캠프몰</title>
 
   <!-- css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -99,7 +103,7 @@
           					${article.articleNo}
           				</td>
           				<td class="left">
-	          				<a href="${contextPath}/notices/noticeView.do?articleNo=${article.articleNo}">
+	          				<a href="${contextPath}/qnalist/qnaView.do?articleNo=${article.articleNo}">
 	          					${article.title}
 							</a>
           				</td>
@@ -118,30 +122,42 @@
           </c:choose>
           </tbody>
         </table>
+
         <div class="paging">
-          <ul class="paging_list">
-            <li class="paging_left">
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                </svg>
-              </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li class="paging_right">
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                </svg>
-              </a>
-            </li>
-          </ul>
-          <a href="${contextPath}/notice/write.jsp" class="btn_black">문의하기</a>
-        </div>
+		<c:if test="${totArticles != 0}">
+			<c:choose>
+				<c:when test="${totArticles > 100}">
+					<c:forEach var="page" begin="1" end="10" step="1">
+						<c:if test="${section > 1 && page == 1}">
+							<a  href="${contextPath}/qnalist/qna.do?section=${section-1}&pageNum=${(section-1)*10+1}"> prev </a>
+						</c:if>
+						<a class="paging_list" href="${contextPath}/qnalist/qna.do?section=${section}&pageNum=${page}">${(section-1)*10+page}</a>
+						<c:if test="${page == 10}">
+							<a href="${contextPath}/qnalist/qna.do?section=${section+1}&pageNum=${section*10+1}"> next </a>
+						</c:if>
+					</c:forEach>
+				</c:when>
+				<c:when test="${totArticles <= 100}">
+					<c:if test="${(totArticles mod 10) == 0}">
+						<c:set var="totArticles" value="${totArticles-1}"/>
+					</c:if>
+					<c:forEach var="page" begin="1" end="${totArticles/10+1}" step="1">
+						<c:choose>
+							<c:when test="${page == pageNum}">
+								<a class="selPage"
+									href="${contextPath}/qnalist/qna.do?section=${section}&pageNum=${page}">${page}</a>
+							</c:when>
+							<c:otherwise>
+								<a class="noLine"
+									href="${contextPath}/qnalist/qna.do?section=${section}&pageNum=${page}">${page}</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</c:when>
+			</c:choose>
+		</c:if>
+          <a href="${contextPath}/qna/write.jsp" class="btn_black">글쓰기</a>
+	</div>
       </div>
     </section>
   </div>

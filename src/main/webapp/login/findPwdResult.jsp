@@ -9,7 +9,7 @@
 request.setCharacterEncoding("utf-8");
 String name = request.getParameter("name");
 String email = request.getParameter("email");
-int phone = Integer.parseInt(request.getParameter("phone"));
+String phone = request.getParameter("phone");
 
 MemberDAO memberDAO = new MemberDAO();
 MemberVO memberVO = new MemberVO();

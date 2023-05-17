@@ -8,10 +8,10 @@
 <%
 request.setCharacterEncoding("utf-8");
 String name = request.getParameter("name");
-int phone = Integer.parseInt(request.getParameter("phone"));
+String phone = request.getParameter("phone");
 
 MemberDAO memberDAO = new MemberDAO();
-MemberVO memberVO = new MemberVO();
+MemberVO memberVO = new MemberVO ();
 memberVO.setName(name);
 memberVO.setPhone1(phone);
 

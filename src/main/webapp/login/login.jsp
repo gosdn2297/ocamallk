@@ -72,7 +72,9 @@ request.setCharacterEncoding("utf-8");
 							<p class="warning_password">영문, 숫자, 특수문자를 조합해서 입력해주세요.
 								(8-16자)</p>
 						</div>
-						<input type="submit" value="로그인" class="submit_login">
+						<div class="input_box">
+							<input type="submit" value="로그인" class="submit_login">
+						</div>
 						<ul>
 							<li><a href="${contextPath}/signup/register.jsp">이메일 가입</a></li>
 							<li><a href="${contextPath}/login/find_email.jsp">이메일 찾기</a></li>

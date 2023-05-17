@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="${contextPath}/css/reset.css">
   <link rel="stylesheet" href="${contextPath}/css/header.css">
   <link rel="stylesheet" href="${contextPath}/css/footer.css">
-  <link rel="stylesheet" href="${contextPath}/css/event.css">
+  <link rel="stylesheet" href="${contextPath}/css/review.css">
 
   <!-- js -->
   <script src="${contextPath}/js/jquery-3.6.4.min.js"></script>
@@ -34,21 +34,25 @@
 
 <body>
   <div class="arrow">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill arrow-up" viewBox="0 0 16 16">
-      <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      class="bi bi-caret-up-fill arrow-up" viewBox="0 0 16 16">
+      <path
+        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill arrow-down" viewBox="0 0 16 16">
-      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      class="bi bi-caret-down-fill arrow-down" viewBox="0 0 16 16">
+      <path
+        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
     </svg>
   </div>
 
-<jsp:include page="../common/header.jsp"></jsp:include>
+  <jsp:include page="../common/header.jsp"></jsp:include>
 
 
   <div class="container">
-    <section class="event">
-      <div class="event_inner">
-        <h2>EVENT</h2>
+    <section class="review">
+      <div class="review_inner">
+        <h2>REVIEW</h2>
 
         <form action="#">
           <fieldset>
@@ -64,8 +68,10 @@
             </label>
             <div class="search_bar">
               <input type="search">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
               </svg>
             </div>
           </fieldset>
@@ -90,7 +96,7 @@
             </tr>
           </thead>
           <tbody>
-          <c:choose>
+            <c:choose>
           	<c:when test="${empty articleList}">
           	<tr>
 	          	<td colspan="5">등록된 공지사항이 없습니다.</td>
@@ -103,7 +109,7 @@
           					${article.articleNo}
           				</td>
           				<td class="left">
-	          				<a href="${contextPath}/events/eventView.do?articleNo=${article.articleNo}">
+	          				<a href="${contextPath}/reviews/reviewView.do?articleNo=${article.articleNo}">
 	          					${article.title}
 							</a>
           				</td>
@@ -129,11 +135,11 @@
 				<c:when test="${totArticles > 100}">
 					<c:forEach var="page" begin="1" end="10" step="1">
 						<c:if test="${section > 1 && page == 1}">
-							<a  href="${contextPath}/events/event.do?section=${section-1}&pageNum=${(section-1)*10+1}"> prev </a>
+							<a  href="${contextPath}/reviews/review.do?section=${section-1}&pageNum=${(section-1)*10+1}"> prev </a>
 						</c:if>
-						<a class="paging_list" href="${contextPath}/events/event.do?section=${section}&pageNum=${page}">${(section-1)*10+page}</a>
+						<a class="paging_list" href="${contextPath}/reviews/review.do?section=${section}&pageNum=${page}">${(section-1)*10+page}</a>
 						<c:if test="${page == 10}">
-							<a href="${contextPath}/events/event.do?section=${section+1}&pageNum=${section*10+1}"> next </a>
+							<a href="${contextPath}/reviews/review.do?section=${section+1}&pageNum=${section*10+1}"> next </a>
 						</c:if>
 					</c:forEach>
 				</c:when>
@@ -145,25 +151,23 @@
 						<c:choose>
 							<c:when test="${page == pageNum}">
 								<a class="selPage"
-									href="${contextPath}/events/event.do?section=${section}&pageNum=${page}">${page}</a>
+									href="${contextPath}/reviews/review.do?section=${section}&pageNum=${page}">${page}</a>
 							</c:when>
 							<c:otherwise>
 								<a class="noLine"
-									href="${contextPath}/events/event.do?section=${section}&pageNum=${page}">${page}</a>
+									href="${contextPath}/reviews/review.do?section=${section}&pageNum=${page}">${page}</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 				</c:when>
 			</c:choose>
 		</c:if>
-          <a href="${contextPath}/event/write.jsp" class="btn_black">글쓰기</a>
+          <a href="${contextPath}/review/write.jsp" class="btn_black">글쓰기</a>
 	</div>
       </div>
     </section>
   </div>
-
-<jsp:include page="../common/footer.jsp"></jsp:include>
-
+ <jsp:include page="../common/footer.jsp"></jsp:include>
 
 </body>
 

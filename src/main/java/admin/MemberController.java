@@ -53,7 +53,7 @@ public class MemberController extends HttpServlet {
 			String name = request.getParameter("name");
 			MemberVO memberVO = new MemberVO(email, pwd, postcode, address, detailAddress, phone, name);
 			request.setAttribute("msg", "addMember");
-			List<MemberVO> memberList = memberDAO.listMembers();
+			List<MemberVO>  memberList= memberDAO.listMembers();
 			request.setAttribute("memberList", memberList); // 회원 정보 바인딩
 			nextPage = "/member/listMembers.do";
 		} else if (action.equals("/modMemberForm.do")) {
